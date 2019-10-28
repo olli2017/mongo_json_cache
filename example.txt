@@ -1,20 +1,26 @@
-{ "action": "put", "key": 1, "message": "Hello"}
+{"action": "put", "key": 2, "message": "Hello"}
 {"status": "Created"}
 
-{ "action": "get", "key": 1}
-{"message": "Hello", "status": "Ok"}
+{"action": "get", "key": 2, "no-cache":true} 
+{"status": "Ok", "message": "Hello"}
 
-{ "action": "put", "key": 1, "message": "Another text"}
+{"action": "get", "key": 2}
+{"status": "Ok", "message": "Hello"}
+
+{"action": "put", "key": 2, "message": "Another text"}
 {"status": "Ok"}
 
-{ "action": "get", "key": 1}
-{"message": "Hello", "status": "Ok"}
-
-{ "action": "get", "key": 1, "no-cache":true} 
+взяли свежие из базы
+{"action": "get", "key": 2, "no-cache":true}
 {"status": "Ok", "message": "Another text"}
 
-{ "action": "delete", "key": 1}
+теперь возьмем из кеша(там еще сохранено старое "Hello")
+{"action": "get", "key": 2}
+{"status": "Ok", "message": "Hello"}
+
+почистим за собой
+{ "action": "delete", "key": 2}
 {"status": "Ok"}
 
-{ "action": "delete", "key": 1}
+{ "action": "delete", "key": 2}
 {"status": "Not found"}

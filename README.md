@@ -3,6 +3,8 @@
 **docker-compose build** - собрать  
 **docker-compose up** - запустить  
 
+**telnet localhost 2000** - подключиться
+
 Example:  
 {"action": "put", "key": 2, "message": "Hello"}  
 {"status": "Created"}

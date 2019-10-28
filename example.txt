@@ -1,0 +1,20 @@
+{ "action": "put", "key": 1, "message": "Hello"}
+{"status": "Created"}
+
+{ "action": "get", "key": 1}
+{"message": "Hello", "status": "Ok"}
+
+{ "action": "put", "key": 1, "message": "Another text"}
+{"status": "Ok"}
+
+{ "action": "get", "key": 1}
+{"message": "Hello", "status": "Ok"}
+
+{ "action": "get", "key": 1, "no-cache":true} 
+{"status": "Ok", "message": "Another text"}
+
+{ "action": "delete", "key": 1}
+{"status": "Ok"}
+
+{ "action": "delete", "key": 1}
+{"status": "Not found"}

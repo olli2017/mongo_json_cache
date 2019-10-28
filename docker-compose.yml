@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  echo-server:
+    build: .
+    ports:
+    - '2000:65432'
+    depends_on:
+    - rediska
+    - mongo
+
+  rediska:
+    image: redis
+    ports:
+    - '7000:6379'
+    volumes:
+    - redis-data:/data
+
+  mongo:
+    image: "mongo:latest"
+
+volumes:
+  redis-data:
